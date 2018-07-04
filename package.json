@@ -1,0 +1,24 @@
+{
+    "name": "Frontend Boilerplate",
+    "version": "1.0.0",
+    "description": "Boilerplate to start a frontend project",
+    "main": "index.js",
+    "scripts": {
+        "watch:sass": "node-sass sass/main.scss css/style.css -w",
+        "devserver": "live-server",
+        "start": "npm-run-all --parallel devserver watch:sass",
+        "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+        "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+        "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+        "build:css": "npm-run-all compile:sass prefix:css compress:css"
+    },
+    "author": "Zendyani",
+    "license": "ISC",
+    "dependencies": {
+        "autoprefixer": "8.6.4",
+        "concat": "1.0.3",
+        "node-sass": "4.9.0",
+        "npm-run-all": "4.1.3",
+        "postcss": "6.0.23"
+    }
+}
